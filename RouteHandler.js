@@ -12,6 +12,16 @@ exports.createUser = (request, h) => {
     return result
 }
 
+exports.updateUser = (request, h) => {
+    const payID = request.params.payID
+    const payload = request.payload;
+    return database.createUser(payload).then((result) => {
+        database.deleteUser(payID)
+        return result
+    })
+    
+}
+
 exports.deleteUser = (request, h) => {
     const payID = request.params.payID
     let result = database.deleteUser(payID)
