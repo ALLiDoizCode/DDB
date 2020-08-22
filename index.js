@@ -14,7 +14,8 @@ const init = async () => {
     server.route({method: 'POST', path: '/createUser', handler: Handler.createUser});
     server.route({method: 'PUT', path: '/updateUser/{payID}', handler: Handler.updateUser});
     server.route({method: 'DELETE', path: '/deleteUser/{payID}', handler: Handler.deleteUser});
-
+    server.route({method: 'GET', path: '/databaseAddress', handler: Handler.databaseAddress});
+    
     await server.start();
     console.log('Server running on %s', server.info.uri);
 };

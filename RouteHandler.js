@@ -28,6 +28,10 @@ exports.deleteUser = (request, h) => {
     return result
 }
 
+exports.databaseAddress = (request, h) => {
+    return database.docstore.address.toString()
+}
+
 database.startDB("mypayid").then((db) => {
     console.log(db.address.toString())
 }).catch(console.log)

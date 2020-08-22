@@ -14,6 +14,8 @@ exports.startDB = async (dbName) => {
     const ipfs = await IPFS.create(ipfsOptions)
     const orbitdb = await OrbitDB.createInstance(ipfs)
     docstore = await orbitdb.docstore(dbName)
+    docstore.load()
+    exports.docstore = docstore
     return new Promise(resolve => {
         resolve(docstore)
     });    
@@ -23,6 +25,8 @@ exports.joinDB = async (dbAddress) => {
     const ipfs = await IPFS.create(ipfsOptions)
     const orbitdb = await OrbitDB.createInstance(ipfs)
     docstore = await orbitdb.docstore(dbAddress)
+    docstore.load()
+    exports.docstore = docstore
     return new Promise(resolve => {
         resolve(docstore)
     });
