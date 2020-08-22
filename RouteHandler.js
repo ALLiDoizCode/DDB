@@ -12,15 +12,10 @@ exports.createUser = (request, h) => {
     return result
 }
 
-exports.updateUser = (request, h) => {
-    const payID = request.params.payID
-    const payload = request.payload;
-    return {"payID":payID,"payload":payload}
-}
-
 exports.deleteUser = (request, h) => {
     const payID = request.params.payID
-    return payID
+    let result = database.deleteUser(payID)
+    return result
 }
 
 database.startDB("mypayid").then((db) => {

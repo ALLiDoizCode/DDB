@@ -12,7 +12,7 @@ const init = async () => {
 
     server.route({method: 'GET', path: '/getUser/{payID}', handler: Handler.getUser});
     server.route({method: 'POST', path: '/createUser', handler: Handler.createUser});
-    server.route({method: 'PUT', path: '/updateUser/{payID}', handler: Handler.updateUser});
+    server.route({method: 'PUT', path: '/updateUser', handler: Handler.createUser});
     server.route({method: 'DELETE', path: '/deleteUser/{payID}', handler: Handler.deleteUser});
 
     await server.start();

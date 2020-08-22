@@ -42,3 +42,10 @@ exports.user = async (payID) => {
         resolve(result)
     });
 }
+
+exports.deleteUser = async (payID) => {
+    const result = await docstore.del(payID)
+    return new Promise(resolve => {
+        resolve(result)
+    });
+}
