@@ -1,6 +1,6 @@
 const IPFS = require('ipfs')
 const OrbitDB = require('orbit-db')
-const uuidv4 = require("uuid/v4")
+const { v4: uuidv4 } = require('uuid');
 
 // optional settings for the ipfs instance
 const ipfsOptions = {
@@ -43,11 +43,3 @@ exports.user = async (payID) => {
         resolve(result)
     });
 }
-
-
-
-/*startDB().then((value) => {
-    console.log(value)
-}).catch((error) => {
-    console.log(error)
-})*/

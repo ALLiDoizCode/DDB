@@ -10,11 +10,11 @@ const init = async () => {
         host: 'localhost'
     });
 
-    server.route({method: 'GET', path: '/getPaymentInformation', handler: Handler.getPaymentInformation});
-    server.route({method: 'GET', path: '/getUser', handler: Handler.getUser});
+    server.route({method: 'GET', path: '/getPaymentInformation/{name}', handler: Handler.getPaymentInformation});
+    server.route({method: 'GET', path: '/getUser/{payID}', handler: Handler.getUser});
     server.route({method: 'POST', path: '/createUser', handler: Handler.createUser});
-    server.route({method: 'PUT', path: '/updateUser', handler: Handler.updateUser});
-    server.route({method: 'DELETE', path: '/deleteUser', handler: Handler.deleteUser});
+    server.route({method: 'PUT', path: '/updateUser/{payID}', handler: Handler.updateUser});
+    server.route({method: 'DELETE', path: '/deleteUser/{payID}', handler: Handler.deleteUser});
 
     await server.start();
     console.log('Server running on %s', server.info.uri);
