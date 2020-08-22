@@ -11,10 +11,10 @@ const ipfsOptions = {
 
 var docstore;
 
-exports.startDB = async () => {
+exports.startDB = async (dbName) => {
     const ipfs = await IPFS.create(ipfsOptions)
     const orbitdb = await OrbitDB.createInstance(ipfs)
-    docstore = await orbitdb.docstore('mypayid')
+    docstore = await orbitdb.docstore(dbName)
     return new Promise(resolve => {
         resolve(docstore)
     });    
