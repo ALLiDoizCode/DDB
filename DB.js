@@ -1,6 +1,5 @@
 const IPFS = require('ipfs')
 const OrbitDB = require('orbit-db')
-const { v4: uuidv4 } = require('uuid');
 
 // optional settings for the ipfs instance
 const ipfsOptions = {
@@ -30,7 +29,7 @@ exports.joinDB = async (dbAddress) => {
 }
 
 exports.createUser = async (object) => {
-    object._id = uuidv4()
+    object._id = object.payId
     const result = await docstore.put(object)
     return new Promise(resolve => {
         resolve(result)

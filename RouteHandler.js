@@ -1,18 +1,15 @@
 const database = require("./DB");
 
-exports.getPaymentInformation = (request, h) => {
-    const name = request.params.name
-    return name
-}
-
 exports.getUser = (request, h) => {
     const payID = request.params.payID
-    return payID
+    let payload = database.user(payID)
+    return payload
 }
 
 exports.createUser = (request, h) => {
     const payload = request.payload;
-    return payload
+    let result = database.createUser(payload)
+    return result
 }
 
 exports.updateUser = (request, h) => {
